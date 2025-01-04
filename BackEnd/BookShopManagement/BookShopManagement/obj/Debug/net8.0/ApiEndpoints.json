@@ -1,0 +1,160 @@
+[
+  {
+    "ContainingType": "BookShopManagement.Controllers.PromotionController",
+    "Method": "GetPromotions",
+    "RelativePath": "Promotion",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "EndpointName": "GetAllPromotion"
+  },
+  {
+    "ContainingType": "BookShopManagement.Controllers.PromotionController",
+    "Method": "AddPromotion",
+    "RelativePath": "Promotion",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BookShopManagement.DTOs.Requests.PromotionInput",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookShopManagement.Controllers.PromotionController",
+    "Method": "EditPromotion",
+    "RelativePath": "Promotion/{requestId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BookShopManagement.DTOs.Requests.PromotionInput",
+        "IsRequired": true
+      },
+      {
+        "Name": "requestId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookShopManagement.Controllers.PromotionController",
+    "Method": "DeletePromotion",
+    "RelativePath": "Promotion/{requestId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookShopManagement.Controllers.PurchaseOrderController",
+    "Method": "GetPurchaseOrders",
+    "RelativePath": "PurchaseOrder",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookShopManagement.Controllers.SupplierController",
+    "Method": "GetSuppliers",
+    "RelativePath": "Supplier",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookShopManagement.Controllers.SupplierController",
+    "Method": "CreateSuppliers",
+    "RelativePath": "Supplier",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BookShopManagement.DTOs.Requests.SupplierInput",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookShopManagement.Controllers.SupplierController",
+    "Method": "EditSupplier",
+    "RelativePath": "Supplier/{requestId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BookShopManagement.DTOs.Requests.SupplierInput",
+        "IsRequired": true
+      },
+      {
+        "Name": "requestId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookShopManagement.Controllers.SupplierController",
+    "Method": "DeleteSupplier",
+    "RelativePath": "Supplier/{requestId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookShopManagement.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BookShopManagement.WeatherForecast, BookShopManagement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]
