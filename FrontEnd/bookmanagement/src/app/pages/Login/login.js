@@ -4,18 +4,18 @@ import axios from 'axios'
 import { jwtDecode } from 'jwt-decode'
 import { useNavigate } from 'react-router'
 import { useContext } from 'react'
-import { UserContext } from '../context/UserContext'
+import { UserContext } from '../../shared/components/UserContext'
 const Login = () => {
     const navigate = useNavigate();
     const { setUser } = useContext(UserContext);
     const handleSubmit = (values) => {
         axios.post("https://localhost:7086/api/Account/login", values)
             .then(res => {
-                console.log(res.data)
-                const decoded = jwtDecode(res.data)
-                console.log("Decoded Token:", decoded);
+                console.log(res.data);
+                const decoded = jwtDecode(res.data);
+                // console.log("Decoded Token:", decoded);
                 setUser(decoded);
-                console.log("decoded after setUser: ",decoded)
+                // console.log("decoded after setUser: ",decoded);
                 if (res.status === 200 && res.data) {
                     // localStorage.setItem("token", res.data.token)
                     alert("login successful");
