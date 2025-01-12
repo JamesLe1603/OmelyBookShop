@@ -23,14 +23,32 @@ namespace OmelyUser.Services
         }
         public User SignUpUser(SignUpRequest request)
         {
-            var user = new User
+            string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+            if (!Directory.Exists(uploadPath)) 
             {
-                UserName = request.UserName,
-                Email = request.Email,
-                FirstName = request.FirstName,
-                LastName = request.LastName
-            };
+                Directory.CreateDirectory(uploadPath); 
+            }
+            string profileImagePath = null;
+            if(request.ProfileImage != null && request.ProfileImage.Length>0)
+            {
+                string fileName = $"{Guid.NewGuid()}_{Path.GetFileName(request.ProfileImage.FileName)}";
+                string filePath = Path.Combine(uploadPath, fileName);
+                //luu file
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    request.ProfileImage.CopyTo(stream);
+                }
+                profileImagePath = $"/uploads/{fileName}";
+            }
 
+                var user = new User
+                {
+                    UserName = request.UserName,
+                    Email = request.Email,
+                    FirstName = request.FirstName,
+                    LastName = request.LastName,
+                    ProfileImage = profileImagePath
+                };
             return user;
         }
         public IdentityRole CreateRole (AddRole request)

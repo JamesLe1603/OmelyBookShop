@@ -64,7 +64,7 @@ namespace OmelyUser.Controllers
             return BadRequest();
         }
         [HttpPost("register-admin")]
-        public async Task<IActionResult> RegisterAdmin([FromBody] SignUpRequest signUpRequest)
+        public async Task<IActionResult> RegisterAdmin([FromForm] SignUpRequest signUpRequest)
         {
             var existedUser = await _userManager.FindByNameAsync(signUpRequest.UserName);
             if (existedUser == null)
@@ -79,6 +79,12 @@ namespace OmelyUser.Controllers
                 return BadRequest();
             }
             return BadRequest();
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetUserId([FromRoute] string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            return Ok(user); 
         }
         [HttpDelete("delete-account")]
         public async Task<IActionResult> DeleteAccount([FromBody] string username)

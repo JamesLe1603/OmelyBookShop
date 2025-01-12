@@ -1,0 +1,68 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\1c41b7f0-b2e0-4fdb-a032-a7c06e1c5693_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>OmelyUserManagement</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/OmelyUserManagement</BasePath>
+      <RelativePath>uploads/1c41b7f0-b2e0-4fdb-a032-a7c06e1c5693_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\1c41b7f0-b2e0-4fdb-a032-a7c06e1c5693_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\37e4af62-3200-400b-b55f-ddc7f024396e_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>OmelyUserManagement</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/OmelyUserManagement</BasePath>
+      <RelativePath>uploads/37e4af62-3200-400b-b55f-ddc7f024396e_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\37e4af62-3200-400b-b55f-ddc7f024396e_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\8cdbb87f-2720-41d7-8eab-388be50e6902_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>OmelyUserManagement</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/OmelyUserManagement</BasePath>
+      <RelativePath>uploads/8cdbb87f-2720-41d7-8eab-388be50e6902_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\8cdbb87f-2720-41d7-8eab-388be50e6902_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a438d2e3-e44d-4f32-87af-850822dd99e5_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>OmelyUserManagement</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/OmelyUserManagement</BasePath>
+      <RelativePath>uploads/a438d2e3-e44d-4f32-87af-850822dd99e5_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a438d2e3-e44d-4f32-87af-850822dd99e5_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+  </ItemGroup>
+</Project>

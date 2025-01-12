@@ -1,0 +1,37 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\03062\\OneDrive\\Desktop\\DAT PROJECT\\DAT_SOURCE_CODE\\BackEnd\\OmelyUserManagement\\OmelyUserManagement\\wwwroot\\uploads\\1c41b7f0-b2e0-4fdb-a032-a7c06e1c5693_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg",
+      "PackagePath": "staticwebassets\\uploads\\1c41b7f0-b2e0-4fdb-a032-a7c06e1c5693_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg"
+    },
+    {
+      "Id": "C:\\Users\\03062\\OneDrive\\Desktop\\DAT PROJECT\\DAT_SOURCE_CODE\\BackEnd\\OmelyUserManagement\\OmelyUserManagement\\wwwroot\\uploads\\37e4af62-3200-400b-b55f-ddc7f024396e_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg",
+      "PackagePath": "staticwebassets\\uploads\\37e4af62-3200-400b-b55f-ddc7f024396e_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg"
+    },
+    {
+      "Id": "C:\\Users\\03062\\OneDrive\\Desktop\\DAT PROJECT\\DAT_SOURCE_CODE\\BackEnd\\OmelyUserManagement\\OmelyUserManagement\\wwwroot\\uploads\\8cdbb87f-2720-41d7-8eab-388be50e6902_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg",
+      "PackagePath": "staticwebassets\\uploads\\8cdbb87f-2720-41d7-8eab-388be50e6902_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg"
+    },
+    {
+      "Id": "C:\\Users\\03062\\OneDrive\\Desktop\\DAT PROJECT\\DAT_SOURCE_CODE\\BackEnd\\OmelyUserManagement\\OmelyUserManagement\\wwwroot\\uploads\\a438d2e3-e44d-4f32-87af-850822dd99e5_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg",
+      "PackagePath": "staticwebassets\\uploads\\a438d2e3-e44d-4f32-87af-850822dd99e5_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.OmelyUserManagement.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.OmelyUserManagement.props",
+      "PackagePath": "build\\OmelyUserManagement.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.OmelyUserManagement.props",
+      "PackagePath": "buildMultiTargeting\\OmelyUserManagement.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.OmelyUserManagement.props",
+      "PackagePath": "buildTransitive\\OmelyUserManagement.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
