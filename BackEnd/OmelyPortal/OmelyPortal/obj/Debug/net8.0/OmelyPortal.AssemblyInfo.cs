@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OmelyPortal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+167b8cec32b1a0aa9c2aa3fe7ad4a0443732836e")]
 [assembly: System.Reflection.AssemblyProductAttribute("OmelyPortal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OmelyPortal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

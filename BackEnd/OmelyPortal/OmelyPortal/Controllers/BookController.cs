@@ -20,8 +20,8 @@ namespace OmelyPortal.Controllers
             var result = _bookService.GetAllBook();
             return Ok(result);
         }
-        [HttpPost("add-book")]
-        public ActionResult AddBook([FromBody] NewOrEditedBook request)
+        [HttpPost("add-book")]  
+        public ActionResult AddBook([FromForm] NewOrEditedBook request)
         {
             var result = _bookService.AddBook(request);
             return Ok(result);

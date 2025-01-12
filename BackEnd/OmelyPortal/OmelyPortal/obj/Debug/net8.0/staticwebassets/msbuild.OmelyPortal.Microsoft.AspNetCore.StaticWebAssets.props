@@ -1,0 +1,36 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\456354e5-d162-42c7-9faa-ce95eae98c20_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>OmelyPortal</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/OmelyPortal</BasePath>
+      <RelativePath>uploads/456354e5-d162-42c7-9faa-ce95eae98c20_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\456354e5-d162-42c7-9faa-ce95eae98c20_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b73f9de8-848b-42d1-8f7b-2a00b438e2a3_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>OmelyPortal</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/OmelyPortal</BasePath>
+      <RelativePath>uploads/b73f9de8-848b-42d1-8f7b-2a00b438e2a3_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b73f9de8-848b-42d1-8f7b-2a00b438e2a3_z5071540703986_da5357a3bd6bd2ead016e6fdae9ccd85.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+  </ItemGroup>
+</Project>

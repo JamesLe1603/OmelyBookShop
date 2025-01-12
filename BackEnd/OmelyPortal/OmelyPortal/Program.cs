@@ -37,7 +37,11 @@ namespace OmelyPortal
             });
             //DI
             builder.Services.AddScoped<BookService>();
-
+            builder.Services.AddScoped<LanguageService>();
+            builder.Services.AddScoped<PublisherService>();
+            builder.Services.AddScoped<AuthorService>();
+            builder.Services.AddScoped<GenreService>();
+            builder.Services.AddScoped<CategoryService>();
 
             var app = builder.Build();
 
@@ -53,6 +57,8 @@ namespace OmelyPortal
             app.UseAuthorization();
 
             app.UseCors("AllowErpDefault");
+
+            app.UseStaticFiles();
 
             app.MapControllers();
 

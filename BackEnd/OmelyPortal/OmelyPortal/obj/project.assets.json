@@ -4430,11 +4430,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\03062\\OneDrive\\Desktop\\DAT PROJECT\\BackEnd\\OmelyPortal\\OmelyPortal\\OmelyPortal.csproj",
+      "projectUniqueName": "C:\\Users\\03062\\OneDrive\\Desktop\\DAT PROJECT\\DAT_SOURCE_CODE\\BackEnd\\OmelyPortal\\OmelyPortal\\OmelyPortal.csproj",
       "projectName": "OmelyPortal",
-      "projectPath": "C:\\Users\\03062\\OneDrive\\Desktop\\DAT PROJECT\\BackEnd\\OmelyPortal\\OmelyPortal\\OmelyPortal.csproj",
+      "projectPath": "C:\\Users\\03062\\OneDrive\\Desktop\\DAT PROJECT\\DAT_SOURCE_CODE\\BackEnd\\OmelyPortal\\OmelyPortal\\OmelyPortal.csproj",
       "packagesPath": "C:\\Users\\03062\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\03062\\OneDrive\\Desktop\\DAT PROJECT\\BackEnd\\OmelyPortal\\OmelyPortal\\obj\\",
+      "outputPath": "C:\\Users\\03062\\OneDrive\\Desktop\\DAT PROJECT\\DAT_SOURCE_CODE\\BackEnd\\OmelyPortal\\OmelyPortal\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

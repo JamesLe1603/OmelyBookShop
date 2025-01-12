@@ -1,12 +1,18 @@
 [
   {
-    "ContainingType": "OmelyPortal.Controllers.AdminController",
-    "Method": "Index",
-    "RelativePath": "api/Admin",
-    "HttpMethod": "GET",
+    "ContainingType": "OmelyPortal.Controllers.AuthorController",
+    "Method": "AddAuthor",
+    "RelativePath": "api/Author/add-author",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "OmelyPortal.Models.Requests.NewAuthorRequest",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -18,9 +24,49 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
-        "Type": "OmelyPortal.Models.Requests.NewOrEditedBook",
-        "IsRequired": true
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Price",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "BookImage",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "GenreId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PublisherId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "AuthorId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "LanguageId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -36,24 +82,124 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "OmelyPortal.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
+    "ContainingType": "OmelyPortal.Controllers.CategoryController",
+    "Method": "AddCategory",
+    "RelativePath": "api/Category/add-category",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "OmelyPortal.Models.Requests.NewCategoryRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OmelyPortal.Controllers.CategoryController",
+    "Method": "GetCategory",
+    "RelativePath": "api/Category/category-data",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OmelyPortal.Controllers.CategoryController",
+    "Method": "DeleteCategory",
+    "RelativePath": "api/Category/delete-category/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[OmelyPortal.WeatherForecast, OmelyPortal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OmelyPortal.Controllers.CategoryController",
+    "Method": "EditCategory",
+    "RelativePath": "api/Category/edit-category/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "OmelyPortal.Models.Requests.NewCategoryRequest",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OmelyPortal.Controllers.GenreController",
+    "Method": "AddGenre",
+    "RelativePath": "api/Genre/add-genre",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "OmelyPortal.Models.Requests.NewGenreRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OmelyPortal.Controllers.GenreController",
+    "Method": "GetGenre",
+    "RelativePath": "api/Genre/genre-data",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OmelyPortal.Controllers.LanguageController",
+    "Method": "AddLanguage",
+    "RelativePath": "api/Language/add-language",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "OmelyPortal.Models.Requests.NewLanguageRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OmelyPortal.Controllers.PublisherController",
+    "Method": "AddPublisher",
+    "RelativePath": "api/Publisher/add-publisher",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "OmelyPortal.Models.Requests.NewPublisherRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
