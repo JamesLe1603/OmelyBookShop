@@ -7,37 +7,33 @@ import { useContext } from 'react'
 import { UserContext } from '../../shared/components/UserContext'
 const Login = () => {
     const navigate = useNavigate();
-    const { setUser } = useContext(UserContext);
-    const handleSubmit = (values) => {
-        axios.post("https://localhost:7086/api/Account/login", values)
-            .then(res => {
-                console.log(res.data);
-                const decoded = jwtDecode(res.data);
-                // console.log("Decoded Token:", decoded);
-                setUser(decoded);
-                // console.log("decoded after setUser: ",decoded);
-                if (res.status === 200 && res.data) {
-                    // localStorage.setItem("token", res.data.token)
-                    alert("login successful");
-                    if (decoded.role === "Customer") {
-                        navigate("/");
-                    }
-                    else {
-                        if (decoded.role === "Admin") {
-                            navigate("/admin");
-                        }
-                    }
+    const { setUser,setUserAvatar } = useContext(UserContext);
+    const handleSubmit = async (values) => {
+        try{
+            const res = await axios.post("https://localhost:7086/api/Account/login", values)
+        if (res.status === 200 && res.data) {
+            const decoded = jwtDecode(res.data);
+            setUser(decoded);
+            const userResponse = await axios.get(`https://localhost:7086/api/Account/${decoded.jti}`);
+            setUserAvatar(`https://localhost:7086${userResponse.data.profileImage}`);
+            alert("login successful");
+
+            if (decoded.role === "Customer") {
+                navigate("/");
+            }
+            else {
+                if (decoded.role === "Admin") {
+                    navigate("/admin");
                 }
-                else {
-                    alert("login failed");
-                }
-            })
-            .catch(err => {
-                console.error("Error during login: ", err);
-                alert("An error occurred while logging in.");
-            })
-            .finally();
-    }
+            }
+        }
+        else {
+            alert("login failed");
+        }}
+        catch(err) {
+            console.error("Error during login: ", err);
+            alert("An error occurred while logging in.");
+        }}
 
     return (
         <Formik
@@ -62,10 +58,12 @@ const Login = () => {
                                 <div className="form-floating mb-3">
                                     <Field type="text" className="form-control" id="floatingText" placeholder="jhondoe" name="username" />
                                     <label htmlFor="floatingText">Username</label>
+                                    <ErrorMessage name='username' className='text-primary'/>
                                 </div>
                                 <div className="form-floating mb-4">
                                     <Field type="password" className="form-control" id="floatingPassword" placeholder="Password" name="password" />
                                     <label htmlFor="floatingPassword">Password</label>
+                                    <ErrorMessage name='password' className='text-primary'/>
                                 </div>
                                 <div className="d-flex align-items-center justify-content-between mb-4">
                                     <div className="form-check">

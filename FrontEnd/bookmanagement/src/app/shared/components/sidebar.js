@@ -1,33 +1,35 @@
 import { useContext } from "react";
 import { SideBarContext } from "./SideBarContext";
+import { Link } from "react-router";
+import { UserContext } from "./UserContext";
 
 const SideBar = () => {
     const { openSideBar } = useContext(SideBarContext);
+    const {user,userAvatar} = useContext(UserContext);
     return (
         <>
             <div className={`sidebar pe-4 pb-3 ${openSideBar ? "open" : ""}`}>
                 <nav className="navbar bg-secondary navbar-dark">
-                    <a href="index.html" className="navbar-brand mx-4 mb-3">
-                        <h3 className="text-primary"><i className="fa fa-user-edit me-2"></i>DarkPan</h3>
-                    </a>
+                    <Link to="/admin" className="navbar-brand mx-4 mb-3">
+                        <h3 className="text-primary">OMELY ADMIN</h3>
+                    </Link>
                     <div className="d-flex align-items-center ms-4 mb-4">
                         <div className="position-relative">
-                            <img className="rounded-circle" src="img/user.jpg" alt="" style={{ width: "40px", height: "40px" }} />
+                            <img className="rounded-circle" src={userAvatar} alt="" style={{ width: "40px", height: "40px" }} />
                             <div className="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                         </div>
                         <div className="ms-3">
-                            <h6 className="mb-0">Jhon Doe</h6>
-                            <span>Admin</span>
+                            <h6 className="mb-0">{user.sub}</h6>
+                            <span>{user.role}</span>
                         </div>
                     </div>
                     <div className="navbar-nav w-100">
                         <a href="index.html" className="nav-item nav-link active"><i className="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                         <div className="nav-item dropdown">
-                            <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i className="fa fa-laptop me-2"></i>Elements</a>
+                            <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i className="fa fa-laptop me-2"></i>Management</a>
                             <div className="dropdown-menu bg-transparent border-0">
-                                <a href="button.html" className="dropdown-item">Buttons</a>
-                                <a href="typography.html" className="dropdown-item">Typography</a>
-                                <a href="element.html" className="dropdown-item">Other Elements</a>
+                                <Link to="/admin/storage" className="dropdown-item">Storage</Link>
+                                <Link to="/admin/category" className="dropdown-item">Categories</Link>
                             </div>
                         </div>
                         <a href="widget.html" className="nav-item nav-link"><i className="fa fa-th me-2"></i>Widgets</a>

@@ -1,58 +1,45 @@
+
+import Footer from "./components/footer";
+import PageHeader from "./components/header";
+import Menu from "./components/menu";
 var Home = () => {
-    return (
+    const services = [
+        {
+            id: 1,
+            title: "Book Rental",
+            description: "Rent your favorite books at affordable prices.",
+          },
+          {
+            id: 2,
+            title: "Book Subscription",
+            description: "Subscribe to get new releases every month.",
+          },
+          {
+            id: 3,
+            title: "Book Recommendations",
+            description: "Get personalized book recommendations based on your interests.",
+          },
+      ];
+    
+      return (
         <>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-3 col-sm-6 mb-4">
-                        <div className="product-card">
-                            <span className="discount-badge">-36%</span>
-                            <img src="https://picsum.photos/200/300" alt="Co Stylus SilStar BuTouch" className="product-image"/>
-                                <h2 className="product-title">Co Stylus SilStar BuTouch Professional Hàn </h2>
-                                <p className="product-price">
-                                    350.000₫
-                                    <span className="original-price">545.000₫</span>
-                                </p>
-                                <button className="btn btn-danger btn-block buy-button">Đặt hàng</button>
-                        </div>
+          <h1>Home Page</h1>
+          <div className="container mt-4">
+            <h2>Our Services</h2>
+            <div className="row ">
+              {services.map((service) => (
+                <div className="col-md-4 " key={service.id}>
+                  <div className="card  mb-4 bg-secondary">
+                    <div className="card-body ">
+                      <h5 className="card-title text-white">{service.title}</h5>
+                      <p className="card-text text-white">{service.description}</p>
                     </div>
-
-                    <div className="col-md-3 col-sm-6 mb-4">
-                        <div className="product-card">
-                            <img src="https://picsum.photos/200/300" alt="Khi Bạn Cười Thời Tiết Đẹp Rạng Ngời" className="product-image"/>
-                                <h2 className="product-title">Khi Bạn Cười Thời Tiết Đẹp Rạng Ngời</h2>
-                                <p className="product-price">
-                                    101.000₫
-                                    <span className="original-price">110.000₫</span>
-                                </p>
-                                <button className="btn btn-danger btn-block buy-button">Đặt hàng</button>
-                        </div>
-                    </div>
-
-                    <div className="col-md-3 col-sm-6 mb-4">
-                        <div className="product-card">
-                            <img src="https://picsum.photos/200/300" alt="BẢNG VẼ MÀN HÌNH XPPEN ARTIST PRO 16 GEN 2" className="product-image"/>
-                                <h2 className="product-title">BẢNG VẼ MÀN HÌNH XPPEN ARTIST PRO 16 GEN 2 - 16K</h2>
-                                <p className="product-price">
-                                    16.900.000₫
-                                    <span className="original-price">18.000.000₫</span>
-                                </p>
-                                <button className="btn btn-danger btn-block buy-button">Đặt hàng</button>
-                        </div>
-                    </div>
-                    <div className="col-md-3 col-sm-6 mb-4">
-                        <div className="product-card">
-                            <img src="https://picsum.photos/200/300" alt="Ủ Òa, Ra Vườn Thôi!" className="product-image"/>
-                                <h2 className="product-title">Ủ Òa, Ra Vườn Thôi!</h2>
-                                <p className="product-price">
-                                    84.000₫
-                                    <span className="original-price">89.000₫</span>
-                                </p>
-                                <button className="btn btn-danger btn-block buy-button">Đặt hàng</button>
-                        </div>
-                    </div>
+                  </div>
                 </div>
+              ))}
             </div>
+          </div>
         </>
-    )
+      );
 }
 export default Home;

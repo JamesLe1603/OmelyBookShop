@@ -9,8 +9,8 @@ import ForgotPassword from './pages/ForgotPassword/forgotPassword';
 import { UserProvider } from './shared/components/UserContext';
 import { SideBarContextProvider } from './shared/components/SideBarContext';
 function App() {
-  // const { user } = useContext(UserContext)
-  // // console.log("tai khoan hien tai 1: ", user)
+  const { user } = useContext(UserContext)
+  console.log("tai khoan hien tai 1: ", user)
   // // useEffect(() => {
   // //   console.log("tai khoan hien tai 2: ", user)
   // // }, [user])
