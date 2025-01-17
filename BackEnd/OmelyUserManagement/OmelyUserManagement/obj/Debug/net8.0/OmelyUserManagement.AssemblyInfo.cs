@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OmelyUserManagement")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+167b8cec32b1a0aa9c2aa3fe7ad4a0443732836e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac1959278889e6d505c9673f0184b74fe1067572")]
 [assembly: System.Reflection.AssemblyProductAttribute("OmelyUserManagement")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OmelyUserManagement")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

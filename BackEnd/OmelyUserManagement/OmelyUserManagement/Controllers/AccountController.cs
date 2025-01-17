@@ -23,8 +23,14 @@ namespace OmelyUser.Controllers
             _userManager = userManager;
             _roleManager = roleManager;
         }
+        [HttpGet("users-list")]
+        public IActionResult GetAllUsers()
+        {
+            var result = _accountService.GetAllUsers();
+            return Ok(result);
+        }
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] SignUpRequest request)
+        public async Task<IActionResult> Register([FromForm] SignUpRequest request)
         {
             var user = _accountService.SignUpUser(request);
             var result = await _userManager.CreateAsync(user, request.Password);

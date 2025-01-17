@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using OmelyUser.Data;
 using OmelyUser.Models;
 using OmelyUser.Models.Requests;
+using OmelyUserManagement.Models.Responses;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -21,6 +22,16 @@ namespace OmelyUser.Services
             _configuration = configuration;
             _userManager = userManager;
         }
+        public List<UserDto> GetAllUsers()
+        {
+            var users = _context.Users.Select(user => new UserDto
+            {
+                Id = user.Id,
+                User = user.UserName,
+                Avatar = user.ProfileImage
+            }).ToList();
+            return users;
+        }
         public User SignUpUser(SignUpRequest request)
         {
             string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
@@ -28,7 +39,7 @@ namespace OmelyUser.Services
             {
                 Directory.CreateDirectory(uploadPath); 
             }
-            string profileImagePath = null;
+            string profileImagePath = null; 
             if(request.ProfileImage != null && request.ProfileImage.Length>0)
             {
                 string fileName = $"{Guid.NewGuid()}_{Path.GetFileName(request.ProfileImage.FileName)}";
