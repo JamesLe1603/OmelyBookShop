@@ -20,5 +20,11 @@ namespace OmelyPortal.Controllers
             var result = _authorService.CreateAuthor(request);
             return Ok(result);
         }
+        [HttpGet("author-data")]
+        public IActionResult GetAuthor()
+        {
+            var result = _authorService.GetAuthors();
+            return Ok(result);
+        }
     }
 }

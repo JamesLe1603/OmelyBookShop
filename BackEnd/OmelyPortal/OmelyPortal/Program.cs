@@ -1,6 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
 using OmelyPortal.Data;
+using OmelyPortal.Models;
+using OmelyPortal.Models.Hubs;
 using OmelyPortal.Services;
 
 namespace OmelyPortal
@@ -35,6 +37,8 @@ namespace OmelyPortal
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
+            //SignalR
+            builder.Services.AddSignalR();
             //DI
             builder.Services.AddScoped<BookService>();
             builder.Services.AddScoped<LanguageService>();
@@ -42,6 +46,8 @@ namespace OmelyPortal
             builder.Services.AddScoped<AuthorService>();
             builder.Services.AddScoped<GenreService>();
             builder.Services.AddScoped<CategoryService>();
+            builder.Services.AddScoped<FileService>();
+            builder.Services.AddScoped<ReviewService>();
 
             var app = builder.Build();
 
@@ -61,7 +67,7 @@ namespace OmelyPortal
             app.UseStaticFiles();
 
             app.MapControllers();
-
+            app.MapHub<InventoryHub>("/inventoryHub");
             app.Run();
         }
     }

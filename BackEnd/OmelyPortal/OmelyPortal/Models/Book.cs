@@ -16,5 +16,6 @@
         public Author Author { get; set; }
         public int PublisherId { get; set; }
         public Publisher Publisher { get; set; }
+        public int Stock {  get; set; }
     }
 }

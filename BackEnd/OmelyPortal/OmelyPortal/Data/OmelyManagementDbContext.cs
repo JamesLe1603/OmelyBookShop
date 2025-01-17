@@ -12,5 +12,7 @@ namespace OmelyPortal.Data
         public DbSet<Language> Languages { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<UploadFile> Files { get; set; }
+        public DbSet<ProductReview> ProductReviews { get; set; }
     }
 }

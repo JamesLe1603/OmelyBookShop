@@ -19,5 +19,11 @@ namespace OmelyPortal.Controllers
             var result = _publisherService.CreatePublisher(request);
             return Ok(result);
         }
+        [HttpGet("publisher-data")]
+        public IActionResult GetPublisher()
+        {
+            var result = _publisherService.GetPublisher();
+            return Ok(result);
+        }
     }
 }

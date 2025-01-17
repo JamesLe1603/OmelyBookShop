@@ -20,5 +20,11 @@ namespace OmelyPortal.Controllers
             var result = _languageService.CreateLanguage(request);
             return Ok(result);
         }
+        [HttpGet("language-data")]
+        public IActionResult GetLanguage()
+        {
+            var result = _languageService.GetLanguages();
+            return Ok(result);
+        }
     }
 }

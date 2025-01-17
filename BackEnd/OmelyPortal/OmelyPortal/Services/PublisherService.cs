@@ -1,6 +1,7 @@
 ﻿using OmelyPortal.Data;
 using OmelyPortal.Models;
 using OmelyPortal.Models.Requests;
+using OmelyPortal.Models.Responses;
 
 namespace OmelyPortal.Services
 {
@@ -21,6 +22,15 @@ namespace OmelyPortal.Services
             _context.Publishers.Add(newPublisher);
             _context.SaveChanges();
             return newPublisher.Id;
+        }
+        public List<PublisherDto> GetPublisher ()
+        {
+            var publishers = _context.Publishers.Select(x=> new PublisherDto
+            {
+                Id = x.Id,
+                Name = x.Name,
+            }).ToList();
+            return publishers;
         }
     }
 }

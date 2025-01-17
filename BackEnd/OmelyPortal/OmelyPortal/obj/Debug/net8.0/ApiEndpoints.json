@@ -16,6 +16,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "OmelyPortal.Controllers.AuthorController",
+    "Method": "GetAuthor",
+    "RelativePath": "api/Author/author-data",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "OmelyPortal.Controllers.BookController",
     "Method": "AddBook",
     "RelativePath": "api/Book/add-book",
@@ -67,6 +77,11 @@
         "Name": "LanguageId",
         "Type": "System.Int32",
         "IsRequired": false
+      },
+      {
+        "Name": "Stock",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -79,6 +94,96 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OmelyPortal.Controllers.BookController",
+    "Method": "GetBookStock",
+    "RelativePath": "api/Book/book-stock/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OmelyPortal.Controllers.BookController",
+    "Method": "GetBook",
+    "RelativePath": "api/Book/book/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OmelyPortal.Controllers.BookController",
+    "Method": "DeleteBook",
+    "RelativePath": "api/Book/delete-book/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OmelyPortal.Controllers.BookController",
+    "Method": "EditBook",
+    "RelativePath": "api/Book/edit-book/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "OmelyPortal.Models.Requests.NewOrEditedBook",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OmelyPortal.Controllers.BookController",
+    "Method": "UpdateStock",
+    "RelativePath": "api/Book/update-stock/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "quantity",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -145,6 +250,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "OmelyPortal.Controllers.FileController",
+    "Method": "UploadFile",
+    "RelativePath": "api/File/upload-file",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "OmelyPortal.Controllers.GenreController",
     "Method": "AddGenre",
     "RelativePath": "api/Genre/add-genre",
@@ -187,6 +308,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "OmelyPortal.Controllers.LanguageController",
+    "Method": "GetLanguage",
+    "RelativePath": "api/Language/language-data",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "OmelyPortal.Controllers.PublisherController",
     "Method": "AddPublisher",
     "RelativePath": "api/Publisher/add-publisher",
@@ -197,6 +328,64 @@
       {
         "Name": "request",
         "Type": "OmelyPortal.Models.Requests.NewPublisherRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OmelyPortal.Controllers.PublisherController",
+    "Method": "GetPublisher",
+    "RelativePath": "api/Publisher/publisher-data",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OmelyPortal.Controllers.ReviewController",
+    "Method": "AddReview",
+    "RelativePath": "api/Review/add-review",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "OmelyPortal.Models.Requests.NewReviewRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OmelyPortal.Controllers.ReviewController",
+    "Method": "GetReviewsByProduct",
+    "RelativePath": "api/Review/book-review/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OmelyPortal.Controllers.ReviewController",
+    "Method": "DeleteReview",
+    "RelativePath": "api/Review/delete-review/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

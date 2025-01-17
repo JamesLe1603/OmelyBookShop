@@ -286,3 +286,8 @@ C:\Users\03062\OneDrive\Desktop\DAT PROJECT\DAT_SOURCE_CODE\BackEnd\OmelyPortal\
 C:\Users\03062\OneDrive\Desktop\DAT PROJECT\DAT_SOURCE_CODE\BackEnd\OmelyPortal\OmelyPortal\obj\Debug\net8.0\OmelyPortal.genruntimeconfig.cache
 C:\Users\03062\OneDrive\Desktop\DAT PROJECT\DAT_SOURCE_CODE\BackEnd\OmelyPortal\OmelyPortal\obj\Debug\net8.0\ref\OmelyPortal.dll
 C:\Users\03062\OneDrive\Desktop\DAT PROJECT\DAT_SOURCE_CODE\BackEnd\OmelyPortal\OmelyPortal\bin\Debug\net8.0\OmelyPortal.staticwebassets.runtime.json
+C:\Users\03062\OneDrive\Desktop\DAT PROJECT\DAT_SOURCE_CODE\BackEnd\OmelyPortal\OmelyPortal\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\03062\OneDrive\Desktop\DAT PROJECT\DAT_SOURCE_CODE\BackEnd\OmelyPortal\OmelyPortal\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\03062\OneDrive\Desktop\DAT PROJECT\DAT_SOURCE_CODE\BackEnd\OmelyPortal\OmelyPortal\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
+C:\Users\03062\OneDrive\Desktop\DAT PROJECT\DAT_SOURCE_CODE\BackEnd\OmelyPortal\OmelyPortal\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\03062\OneDrive\Desktop\DAT PROJECT\DAT_SOURCE_CODE\BackEnd\OmelyPortal\OmelyPortal\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll
