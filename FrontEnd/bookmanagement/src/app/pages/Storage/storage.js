@@ -5,6 +5,8 @@ import ManageTools from "./component/ManageTools";
 import { ModalContext } from "./component/ModalContext";
 import SettingPopUp from "./component/PopUp";
 import { Link } from "react-router";
+import { Helmet } from "react-helmet";
+import DataTable from "./component/BookTableData";
 
 const Storage = () => {
     const { bookList } = useContext(BookContext)
@@ -14,13 +16,13 @@ const Storage = () => {
     }
     return (
         <>
-
+            <Helmet>
+                <title>Omely Storage</title>
+            </Helmet>
             <div className="container-fluid pt-4 px-4">
-
                 {show && (
                     <SettingPopUp />
                 )}
-
                 {bookList && (
                     <>
 

@@ -5,7 +5,6 @@ import Header from "../../shared/components/Header";
 import { SideBarContext } from "../../shared/components/SideBarContext";
 const AdminHome = () => {
     const { openSideBar } = useContext(SideBarContext);
-    console.log(openSideBar);
     return (
         <div className={`content ${openSideBar ? "open" : ""}`}>
             <Header />

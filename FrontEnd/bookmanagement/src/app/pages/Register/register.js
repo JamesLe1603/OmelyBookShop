@@ -2,26 +2,37 @@ import axios from "axios";
 import * as Yup from "yup"
 import { Form, Formik, Field, ErrorMessage } from "formik";
 const Register = () => {
-    const handleSignUp = (values, { resetForm }) => {
-        axios.post("https://localhost:7086/api/Account/register", values)
-            .then(res => {
-                alert("Created successfully!");
+    const handleSignUp = async (values, { resetForm }) => {
+        const formData = new FormData();
+        formData.append("avatar",values.avatar);
+        formData.append("username",values.username);
+        formData.append("password",values.password);
+        formData.append("firstName",values.firstName);
+        formData.append("lastName",values.lastName);
+        console.log("form-data: ",formData)
+        try{
+            const response = await axios.post("https://localhost:7086/api/Account/register", formData, {
+                headers: {
+                    "Content-Type" : "multipart/form-data"
+                }
             })
-            .catch(err => {
-                console.error("Error during login", err);
-                alert("An error occurred while signing up");
-            })
-            .finally();
+        }
+        catch(err) {
+            alert("Error during sign up", err.message);
+        }
     }
     return (
-        <>
+
+        <div className="container p-3 mt-3">
+            <h2 className="text-center my-4">Sign Up</h2>
             <Formik
                 initialValues={{
                     firstName: "",
                     lastName: "",
                     username: "",
                     password: "",
-                    email: ""
+                    email: "",
+                    avatar: null
                 }}
                 validationSchema={Yup.object({
                     firstName: Yup.string().required("Required field!"),
@@ -29,81 +40,92 @@ const Register = () => {
                     username: Yup.string().required("Required field!"),
                     password: Yup.string().required("Required field!"),
                     email: Yup.string().required("Required field!").email("Invalid email"),
+                    avatar: Yup.mixed().required("Required field!")
                 })}
                 onSubmit={handleSignUp}
             >
-
-
-                <div className="container-fluid">
-                    <div className="row w-100 h-100 align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
-                        <div className="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
-                            <div className="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
-                                <div className="d-flex align-items-center justify-content-between mb-3">
-                                    <a href="/" className="">
-                                        <h3 className="text-primary"><i className="fa fa-user-edit me-2"></i>OMELY BOOKSHOP</h3>
-                                    </a>
-                                    <h3>Sign Up</h3>
-                                </div>
-                                <Form>
-                                    <div className="row g-3">
-                                        <div className="col-6">
-                                            <div className="form-floating mb-3">
-                                                <Field
-                                                    name="firstName"
-                                                    type="text"
-                                                    className="form-control"
-                                                    id="floatingText"
-                                                    placeholder="John"
-                                                />
-                                                <label htmlFor="floatingText">First Name</label>
-                                                <ErrorMessage name="firstName" />
-                                            </div>
-                                        </div>
-                                        <div className="col-6">
-                                            <div className="form-floating mb-3">
-                                                <Field
-                                                    name="lastName"
-                                                    type="text"
-                                                    className="form-control"
-                                                    id="floatingText"
-                                                    placeholder="Doe"
-                                                />
-                                                <label htmlFor="floatingText">Last Name</label>
-                                                <ErrorMessage name="lastName" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="form-floating mb-3">
-                                        <Field type="text" className="form-control" id="floatingText" placeholder="jhondoe" name="username" />
-                                        <label htmlFor="floatingText">Username</label>
-                                        <ErrorMessage name="username" />
-                                    </div>
-                                    <div className="form-floating mb-3">
-                                        <Field type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name="email" />
-                                        <label htmlFor="floatingInput">Email address</label>
-                                    </div>
-                                    <div className="form-floating mb-4">
-                                        <Field type="password" className="form-control" id="floatingPassword" placeholder="Password" name="password" />
-                                        <label htmlFor="floatingPassword">Password</label>
-                                        <ErrorMessage name="password" />
-                                    </div>
-                                    <div className="d-flex align-items-center justify-content-between mb-4">
-                                        <div className="form-check">
-                                            <Field name="agreeTerms" type="checkbox" className="form-check-input" id="exampleCheck1" />
-                                            <label className="form-check-label" htmlFor="exampleCheck1">Agree terms</label>
-                                            <ErrorMessage name="agreeTerms" />
-                                        </div>
-                                        <a href="/forgot-password">Forgot Password</a>
-                                    </div>
-                                    <button type="submit" className="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
-                                </Form>
-                                <p className="text-center mb-0">Already have an Account? <a href="/login">Sign In</a></p>
-                            </div>
+                {({ setFieldValue }) => (
+                    <Form>
+                        <div className="mb-3">
+                            <label htmlFor="avatar" className="form-label">Avatar</label>
+                            <input 
+                                type="file" 
+                                className="form-control" 
+                                id="avatar" 
+                                name="avatar" 
+                                onChange={(event) => {
+                                    setFieldValue("avatar", event.currentTarget.files[0]);
+                                }} 
+                            />
+                            <ErrorMessage name="avatar" component="div" className="text-danger" />
                         </div>
-                    </div>
-                </div>
+
+                        <div className="mb-3">
+                            <label htmlFor="firstName" className="form-label">First Name</label>
+                            <Field
+                                name="firstName"
+                                type="text"
+                                className="form-control"
+                                id="firstName"
+                                placeholder="John"
+                            />
+                            <ErrorMessage name="firstName" component="div" className="text-danger" />
+                        </div>
+
+                        <div className="mb-3">
+                            <label htmlFor="lastName" className="form-label">Last Name</label>
+                            <Field
+                                name="lastName"
+                                type="text"
+                                className="form-control"
+                                id="lastName"
+                                placeholder="Doe"
+                            />
+                            <ErrorMessage name="lastName" component="div" className="text-danger" />
+                        </div>
+
+                        <div className="mb-3">
+                            <label htmlFor="username" className="form-label">Username</label>
+                            <Field
+                                name="username"
+                                type="text"
+                                className="form-control"
+                                id="username"
+                                placeholder="jhondoe"
+                            />
+                            <ErrorMessage name="username" component="div" className="text-danger" />
+                        </div>
+
+                        <div className="mb-3">
+                            <label htmlFor="email" className="form-label">Email Address</label>
+                            <Field
+                                name="email"
+                                type="email"
+                                className="form-control"
+                                id="email"
+                                placeholder="name@example.com"
+                            />
+                            <ErrorMessage name="email" component="div" className="text-danger" />
+                        </div>
+
+                        <div className="mb-3">
+                            <label htmlFor="password" className="form-label">Password</label>
+                            <Field
+                                name="password"
+                                type="password"
+                                className="form-control"
+                                id="password"
+                                placeholder="Password"
+                            />
+                            <ErrorMessage name="password" component="div" className="text-danger" />
+                        </div>
+
+                        <button type="submit" className="btn btn-primary w-100 mb-3">Sign Up</button>
+                        <p className="text-center">Already have an account? <a href="/login">Sign In</a></p>
+                    </Form>
+                )}
             </Formik>
-        </>
+        </div>
     )
 }
 export default Register;

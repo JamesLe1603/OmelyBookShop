@@ -23,10 +23,7 @@ const SettingPopUp = () => {
         <>
             {show && (
                 <>
-                    {/* Backdrop */}
                     <div className="modal-backdrop show"></div>
-
-                    {/* Modal */}
 
                     <div className="modal-dialog show" style={{
                         position: "fixed",

@@ -1,15 +1,11 @@
-import { useContext, useEffect, useState } from "react"
-import { UserContext } from "../../shared/components/UserContext"
+import {  useEffect, useState } from "react"
 import axios from "axios"
-import Header from "../../shared/components/Header"
-import { Navbar } from "react-bootstrap"
 
 const Products = () => {
     const [books, setBooks] = useState([]);
     useEffect(() => {
         const getData = async () => {
             const res = await axios.get('https://localhost:7029/api/Book/book-data');
-            console.log(res);
             setBooks(res.data);
         };
         getData();

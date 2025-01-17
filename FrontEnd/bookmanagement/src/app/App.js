@@ -8,9 +8,11 @@ import Register from './pages/Register/register';
 import ForgotPassword from './pages/ForgotPassword/forgotPassword';
 import { UserProvider } from './shared/components/UserContext';
 import { SideBarContextProvider } from './shared/components/SideBarContext';
+import { BookDataProvider } from './shared/components/BookContext';
+import ScrollToTop from './shared/components/ScrollToTop';
 function App() {
-  const { user } = useContext(UserContext)
-  console.log("tai khoan hien tai 1: ", user)
+  // const { user } = useContext(UserContext)
+  // console.log("tai khoan hien tai 1: ", user)
   // // useEffect(() => {
   // //   console.log("tai khoan hien tai 2: ", user)
   // // }, [user])
@@ -18,14 +20,12 @@ function App() {
     <>
       <>
         <SideBarContextProvider>
-          <Routes>
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/forgot-password' element={<ForgotPassword />} />
-          </Routes>
-          <PublicRouter />
-          <PrivateRouter />
+          <BookDataProvider>
+            <PublicRouter />  
+            <PrivateRouter />
+          </BookDataProvider>
         </SideBarContextProvider>
+        <ScrollToTop/>
       </>
     </>
   );

@@ -2,17 +2,23 @@ import { useContext, useState,useEffect } from "react";
 import { UserContext } from "./UserContext";
 import { SideBarContext } from "./SideBarContext";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 const Navbar = () => {
-    const { user,userAvatar } = useContext(UserContext);
+    const { user,userAvatar,setUser,setUserAvatar } = useContext(UserContext);
     const { setOpenSideBar } = useContext(SideBarContext)
-    console.log("user id in Nav: ", user.jti);
-    console.log("username in Nav: ", user.sub);
-    console.log(user);
+    const navigate = useNavigate()
+    // console.log("user id in Nav: ", user.jti);
+    // console.log("username in Nav: ", user.sub);
+    // console.log(user);
     const handleClick = () => {
         setOpenSideBar((prevStatus) => !prevStatus);
     }
-
+    const handleLogOut = () => {
+        setUser(null);
+        setUserAvatar(null);
+        navigate("/")
+    }
     return (
         <>
             <nav className="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
@@ -35,7 +41,7 @@ const Navbar = () => {
                             <div className="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                                 <a href="#" className="dropdown-item">Omely Website</a>
                                 <a href="#" className="dropdown-item">Settings</a>
-                                <a href="#" className="dropdown-item">Log Out</a>
+                                <a href="#" className="dropdown-item" onClick={handleLogOut}>Log Out</a>
                             </div>
                         </div>
                     ) : (

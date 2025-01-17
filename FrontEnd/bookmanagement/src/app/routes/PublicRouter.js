@@ -10,17 +10,23 @@ import Contact from '../pages/Contact/contact';
 import Profile from '../pages/Profile/profile';
 import Products from '../pages/Product/product';
 import Cart from '../pages/Cart/cart';
+import { BookContext } from '../shared/components/BookContext';
+import BookDetails from '../pages/Book/BookDetails';
+import { useContext } from 'react';
 const PublicRouter = () => {
     return (
         <Routes>
             <Route path='/' element={<UserLayout />}>
-                <Route index element={<Home/>}/>
-                <Route path='product' element={<Products/>}/>
-                <Route path='contact' element={<Contact/>}/>
-                <Route path='cart' element={<Cart/>}/>
-                <Route path='profile' element={<Profile/>}/>
-                <Route path='about' element={<About/>}/>
+                <Route index element={<Home />} />
+                <Route path='product' element={<Products />} />
+                <Route path='contact' element={<Contact />} />
+                <Route path='cart' element={<Cart />} />
+                <Route path='profile' element={<Profile />} />
+                <Route path='about' element={<About />} />
+                <Route path='register' element={<Register />} />
+                <Route path='book-detail/:id' element={<BookDetails/>}/>
             </Route>
+                <Route path='/login' element={<Login />} />
         </Routes>
     )
 }

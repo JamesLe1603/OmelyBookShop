@@ -1,32 +1,34 @@
 import { Link } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter, faFacebook, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
+
 const Footer = () => {
     return (
         <div className="">
             {/* Footer Start */}
-            <div className="container-fluid text-white mt-5 pt-5 bg-secondary"  >
+            <div className="container-fluid text-white bg-secondary">
                 <div className="row px-xl-5 pt-5">
                     <div className="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
                         <h5 className="text-primary text-uppercase mb-4">OMELY BOOKSHOP</h5>
-                        <p className="mb-4 text-white">Nơi bạn có thể trao gửi niềm tim</p>
-                        <p className="mb-2 text-white"><i className="fa fa-map-marker text-primary  mr-3" />65 Huỳnh Thúc Kháng, phường Bến Nghé, Quận 1, thành phố Hồ Chí Minh</p>
+                        <p className="mb-4 text-white">Where you can place your trust</p>
+                        <p className="mb-2 text-white"><i className="fa fa-map-marker text-primary mr-3" />65 Huynh Thuc Khang, Ben Nghe Ward, District 1, Ho Chi Minh City</p>
                         <p className="mb-2 text-white"><i className="fa fa-envelope text-primary mr-3" />omelybookshop@gmail.com</p>
                         <p className="mb-0 text-white"><i className="fa fa-phone text-primary mr-3" />+84 984 855 261</p>
                     </div>
                     <div className="col-lg-8 col-md-12">
                         <div className="row">
                             <div className="col-md-6 mb-5">
-                                <h5 className="text-white text-uppercase mb-4">Liên kết nhanh</h5>
+                                <h5 className="text-primary text-uppercase mb-4">Links</h5>
                                 <div className="d-flex flex-column justify-content-start">
-                                    <Link className="text-white mb-2" to={`/`}><i className="fa fa-angle-right mr-2" />Trang chủ</Link>
-                                    <Link className="text-white mb-2" to={`/shop.html`}><i className="fa fa-angle-right mr-2" />Sản phẩm</Link>
-                                    <a className="text-white mb-2" href="#"><i className="fa fa-angle-right mr-2" />Về chúng tôi</a>
-                                    <a className="text-white mb-2" href="#"><i className="fa fa-angle-right mr-2" />Liên hệ</a>
-
+                                    <Link className="text-white mb-2" to={`/`}><i className="fa fa-angle-right mr-2" />Home</Link>
+                                    <Link className="text-white mb-2" to={`/shop.html`}><i className="fa fa-angle-right mr-2" />Products</Link>
+                                    <a className="text-white mb-2" href="#"><i className="fa fa-angle-right mr-2" />About Us</a>
+                                    <a className="text-white mb-2" href="#"><i className="fa fa-angle-right mr-2" />Contact</a>
                                 </div>
                             </div>
                             <div className="col-md-6 mb-5">
-                                <h5 className="text-white text-uppercase mb-4">Gửi phản hồi</h5>
-                                <p className='text-white'>Vui lòng nhập Email của bạn</p>
+                                <h5 className="text-primary text-uppercase mb-4">Send Feedback</h5>
+                                <p className='text-white'>Please enter your email</p>
                                 <form action=''>
                                     <div className="input-group">
                                         <input type="text" className="form-control" placeholder="Your Email Address" />
@@ -37,10 +39,10 @@ const Footer = () => {
                                 </form>
                                 <h6 className="text-white text-uppercase mt-4 mb-3">Follow Us</h6>
                                 <div className="d-flex">
-                                    <a className="btn btn-primary btn-square mr-2" href="#"><i className="fa fa-twitter" /></a>
-                                    <a className="btn btn-primary btn-square mr-2" href="#"><i className="fa fa-facebook" /></a>
-                                    <a className="btn btn-primary btn-square mr-2" href="#"><i className="fa fa-linkedin" /></a>
-                                    <a className="btn btn-primary btn-square" href="#"><i className="fa fa-instagram" /></a>
+                                    <FontAwesomeIcon className="btn btn-primary btn-square m-2 p-1" icon={faTwitter}></FontAwesomeIcon>
+                                    <FontAwesomeIcon className="btn btn-primary btn-square m-2 p-1" icon={faFacebook} />
+                                    <FontAwesomeIcon className="btn btn-primary btn-square m-2 p-1" icon={faLinkedin} />
+                                    <FontAwesomeIcon className="btn btn-primary btn-square m-2 p-1" icon={faInstagram} />
                                 </div>
                             </div>
                         </div>
@@ -59,10 +61,8 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            {/* Footer End */}
-            {/* Back to Top */}
-            <button style={{ display: "block" }} className="btn btn-primary back-to-top"><i className="fa fa-angle-double-up" /></button>
         </div>
     )
 }
+
 export default Footer;

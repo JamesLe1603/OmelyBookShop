@@ -1,6 +1,7 @@
-.pagination .page-link{
+.pagination .page-link {
     background-color: inherit;
 }
+
 /********** Template CSS **********/
 :root {
     --primary: #EB1616;
@@ -364,4 +365,37 @@ body {
 
 .buy-button:hover {
     background-color: #ff6666;
+}
+
+.card-img-top {
+    height: 200px;
+    /* Cố định chiều cao */
+    object-fit: cover;
+    /* Đảm bảo hình ảnh không bị méo */
+    width: 100%;
+}
+
+.card {
+    height: 100%;
+    /* Đảm bảo chiều cao của tất cả các card được đồng bộ */
+    display: flex;
+    flex-direction: column;
+    /* Đặt nội dung theo cột */
+}
+
+.card-body {
+    flex-grow: 1;
+    /* Đảm bảo nội dung chiếm hết không gian có sẵn */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Cân bằng nội dung */
+}
+
+.book-item-description {
+    display: -webkit-box;
+    max-width: 200px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }

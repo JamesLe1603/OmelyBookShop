@@ -1,30 +1,112 @@
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import * as Yup from "yup"
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import { BookContext } from "../../shared/components/BookContext";
+import { useNavigate } from "react-router";
 const BookInfomation = () => {
+    const {setBookList} = useContext(BookContext);
+    const [languageData,setLanguageData] = useState([]);
+    const [genreData,setGenreData] = useState([]);
+    const [publisherData,setPublisherData] = useState([]);
+    const [authorData,setAuthorData] = useState([]);
+    const navigate = useNavigate();
+    const getLanguageData = async () => {
+        try {
+            const languageRes = await axios.get('https://localhost:7029/api/Language/language-data')
+            setLanguageData(languageRes.data);
+        } catch (error) {
+            console.log("error: ",error.message)
+        }
+    }
+    const getPublisherData = async () => {
+        try {
+            const publisherRes = await axios.get('https://localhost:7029/api/Publisher/publisher-data')
+            setPublisherData(publisherRes.data);
+        } catch (error) {
+            console.log("error: ",error.message)
+        }
+    }
+    const getAuthorData = async () => {
+        try {
+            const authorRes = await axios.get('https://localhost:7029/api/Author/author-data')
+            setAuthorData(authorRes.data);
+        } catch (error) {
+            console.log("error: ",error.message)
+        }
+    }
+    const getGenreData = async () => {
+        try {
+            const genreRes = await axios.get('https://localhost:7029/api/Genre/genre-data')
+            setGenreData(genreRes.data)
+        } catch (error) {
+            console.log("error: ",error.message)
+        }
+    }
+    const handleSubmit = async (values) => {
+        const formData = {
+            "title" : values.title,
+            "price" : values.price,
+            "description": values.description,
+            "pageNumber": values.pageNumber,
+            "bookImage": values.image,
+            "genreId": values.genre,
+            "languageId": values.language,
+            "publisherId": values.publisher,
+            "authorId": values.author
+        };
+        console.log("Image value: ",values.image.name)
+        console.log("form value: ",values);
+        console.log("form-data: ",formData);
+        try {
+            const response = await axios.post("https://localhost:7029/api/Book/add-book", formData,{
+                headers: {
+                    "Content-Type": "multipart/form-data"
+                }
+            });
+            setBookList(prev => [...prev, response.data]); // Cập nhật danh sách sách
+            alert("Sách đã được thêm thành công!"); // Thông báo cho người dùng
+            console.log("book-data: ",response)
+        } catch (error) {
+            alert("Đã xảy ra lỗi: " + error.message); 
+            console.log("book-error: ",error.response);
+        } finally {
+            
+        }
+    };
+    useEffect(() => {
+        getAuthorData();
+        getGenreData();
+        getLanguageData();
+        getPublisherData();
+    },[])
     return (
-
         <Formik initialValues={{
             title: "",
             price: "",
             description: "",
             pageNumber: "",
-            image: "",
-            genre: "",
-            language: "",
-            publisher: "",
-            author: ""
+            stock: "",
+            image: null,
+            genre: null,
+            language: null,
+            publisher: null,
+            author: null
         }}
             validationSchema={Yup.object({
-                title: Yup.string().required("required!"),
+                title: Yup.string().required("required"),
                 price: Yup.string().required("required"),
                 description: Yup.string().required("required"),
-                pageNumber: Yup.string().required("required"),
+                pageNumber: Yup.number().required("required"),
                 image: Yup.string().required("required"),
-                genre: Yup.string().required("required"),
-                language: Yup.string().required("required"),
-                publisher: Yup.string().required("required"),
-                author: Yup.string().required("required"),
-            })}>
+                genre: Yup.string().required("Please choose 1 genre!"),   
+                language: Yup.string().required("Please choose 1 language!"),
+                publisher: Yup.string().required("Please choose 1 publisher!"),
+                author: Yup.string().required("Please choose 1 author!"),
+                stock: Yup.string().required("Required!")
+            })}
+            onSubmit={handleSubmit}>
+            {({ setFieldValue }) => (
             <Form>
                 <div className="container-fluid pt-4 px-4">
                     <div className="bg-secondary rounded h-100 p-4">
@@ -45,55 +127,86 @@ const BookInfomation = () => {
                         <div className="tab-content pt-4" id="nav-tabContent">
                             <div className="tab-pane fade show active" id="nav-infomation" role="tabpanel" aria-labelledby="nav-infomation-tab">
                                 <div class="row mb-3">
-                                    <div className="col-sm-3 d-flex flex-column align-items-center" >
-                                        <div className="square-image mb-2" style={{ width: "200px", height: "400px", backgroundColor: "#ccc" }}></div>
-                                        <button className="btn btn-sm btn-primary">Add Image</button>
+                                    <div className="row mb-5">
+                                        <label htmlFor="image" className="col-sm-3 col-form-label">Book Image: </label>
+                                        <div className="col-sm-9">
+                                            <input type="file" className="form-control bg-dark" id="image" name="image" onChange={(event) => {
+                                            setFieldValue("image", event.currentTarget.files[0]);
+                                        }}/>
+                                            <ErrorMessage name="image" className="text-danger" component="div"/>
+                                        </div>
                                     </div>
-                                    <div className="col-sm-5">
-                                        <div className="row mb-5">
-                                            <label htmlFor="title" className="col-sm-3 col-form-label">Title:</label>
-                                            <div className="col-sm-9">
-                                                <Field type="text" class="form-control" id="title" name="title" />
-                                            </div>
+                                    <div className="row mb-5">
+                                        <label htmlFor="title" className="col-sm-3 col-form-label">Title:</label>
+                                        <div className="col-sm-9">
+                                            <Field type="text" class="form-control" id="title" name="title" />
+                                            <ErrorMessage name="title" className="text-danger" component="div"/>
                                         </div>
-                                        <div className="row mb-5">
-                                            <label htmlFor="genre" className="col-sm-3 col-form-label">Genre:</label>
-                                            <div className="col-sm-9">
-                                                <Field type="text" class="form-control" id="genre" name="genre" />
-                                            </div>
+                                    </div>
+                                    <div className="row mb-5">
+                                        <label htmlFor="genre" className="col-sm-3 col-form-label">Genre:</label>
+                                        <div className="col-sm-9">
+                                            <Field as="select" class="form-control" id="genre" name="genre" >
+                                                <option value="">Choose genre</option>
+                                                {genreData.map(i=>(
+                                                    <option value={i.id}>{i.name}</option>
+                                                ))}
+                                            </Field>
+                                            <ErrorMessage name="genre" className="text-danger" component="div"/>
                                         </div>
-                                        <div className="row mb-5">
-                                            <label htmlFor="description" className="col-sm-3 col-form-label">Description:</label>
-                                            <div className="col-sm-9">
-                                                <textarea type="text" class="form-control" id="description" name="description" />
-                                            </div>
+                                    </div>
+                                    <div className="row mb-5">
+                                        <label htmlFor="description" className="col-sm-3 col-form-label">Description:</label>
+                                        <div className="col-sm-9">
+                                            <Field type="text" class="form-control" id="description" name="description" />
+                                            <ErrorMessage name="description" className="text-danger" component="div"/>
                                         </div>
-                                        <div className="row mb-5">
-                                            <label htmlFor="price" className="col-sm-3 col-form-label">Price:</label>
-                                            <div className="col-sm-9">
-                                                <Field type="text" class="form-control" id="price" name="price" />
-                                            </div>
+                                    </div>
+                                    <div className="row mb-5">
+                                        <label htmlFor="price" className="col-sm-3 col-form-label">Price:</label>
+                                        <div className="col-sm-9">
+                                            <Field type="text" class="form-control" id="price" name="price" />
+                                            <ErrorMessage name="price" className="text-danger" component="div"/>
                                         </div>
+                                    </div>
                                         <div className="row mb-5">
                                             <label htmlFor="language" className="col-sm-3 col-form-label">Language:</label>
                                             <div className="col-sm-9">
-                                                <Field type="text" class="form-control" id="language" name="language" />
+                                                <Field as="select" className="form-select" name="language">
+                                                    <option value="">Choose Lanaguage</option>
+                                                    {languageData.map(i => (
+                                                        <option value={i.id}>{i.name}</option>
+                                                    ))}
+                                                </Field>
+                                                <ErrorMessage name="language" className="text-danger" component="div" />
                                             </div>
                                         </div>
-                                    </div>
+
                                 </div>
                                 <div className="row mb-3">
                                     <div className="col-sm-8  d-flex justify-content-between">
                                         <div className="row mb-5">
                                             <label htmlFor="language" className="col-sm-5 col-form-label">Author:</label>
                                             <div className="col-sm-7">
-                                                <Field type="text" class="form-control" id="author" name="author" />
+                                                <Field as="select" class="form-control" id="author" name="author">
+                                                    <option selected value="">Choose Author</option>
+                                                    {authorData.map(i => (
+                                                        <option value={i.id}>{i.name}</option>
+                                                    ))}
+                                                </Field>
+                                                <ErrorMessage name="author" className="text-danger" component="div" />
                                             </div>
                                         </div>
                                         <div className="row mb-5">
                                             <label htmlFor="language" className="col-sm-5 col-form-label">Publisher:</label>
                                             <div className="col-sm-7">
-                                                <Field type="text" class="form-control" id="publisher" name="publisher" />
+                                                <Field as="select" class="form-control" id="publisher" name="publisher">
+                                                    <option selected value="">Choose Publisher</option>
+                                                    {publisherData.map(i=> (
+                                                        <option value={i.id}>{i.name}</option>
+                                                    ))}
+                                                </Field>
+                                                <ErrorMessage name="publisher" className="text-danger" component="div"/>
                                             </div>
                                         </div>
                                     </div>
@@ -104,6 +217,14 @@ const BookInfomation = () => {
                                             <label htmlFor="language" className="col-sm-5 col-form-label">Page number:</label>
                                             <div className="col-sm-7">
                                                 <Field type="text" class="form-control" id="pageNumber" name="pageNumber" />
+                                                <ErrorMessage name="pageNumber" className="text-danger" component="div"/>
+                                            </div>
+                                        </div>
+                                        <div className="row mb-5">
+                                            <label htmlFor="stock" className="col-sm-5 col-form-label">Stock:</label>
+                                            <div className="col-sm-7">
+                                                <Field type="text" class="form-control" id="stock" name="stock" />
+                                                <ErrorMessage name="stock" className="text-danger" component="div"/>
                                             </div>
                                         </div>
                                     </div>
@@ -116,106 +237,9 @@ const BookInfomation = () => {
                             </div>
                         </div>
                     </div>
-
                 </div>
-            </Form>
+            </Form>)}
         </Formik>
     )
 }
 export default BookInfomation;
-{/* <div className="content mt-3  ">
-<div className="animated fadeIn">
-
-    <Tabs>
-        <Tab eventKey={1} title="Thông tin sản phẩm">
-            <Form className="card p-3">
-                <Form.Group className="mb-3 row p-3" >
-                    <div className="col-6">
-                        <Form.Label>Tên sản phẩm</Form.Label>
-                        <Form.Control name="ProductName" type="text" placeholder="Nhập mã sản phẩm" />
-                    </div>
-                    <div className="col-6">
-                        <Form.Label>Mã sản phẩm</Form.Label>
-                        <Form.Control name="SKU" type="text" placeholder="Nhập mã sản phẩm" />
-                    </div>
-                    <div className="col-6">
-                        <Form.Label>Ảnh sản phẩm</Form.Label>
-                        <Form.Control accept="image/*" multiple name="AvatarFile" type="file" />
-                    </div>
-                    <div className="col-6">
-                        <Form.Label>Tồn kho</Form.Label>
-                        <InputGroup className="mb-3">
-                            <Form.Control name="Stock" type="number" min={0} placeholder="Nhập tồn kho" />
-                        </InputGroup>
-                    </div>
-                    <div className="col-6">
-                        <Form.Label>Danh mục</Form.Label>
-                    </div>
-
-                </Form.Group>
-                <Form.Group className="mb-3 row p-3" >
-                    <div className="col-6">
-                        <Form.Label>Giá bán</Form.Label>
-                        <InputGroup className="mb-3">
-                            <Form.Control name="Price" type="number" min={0} placeholder="Nhập giá bán" />
-                            <InputGroup.Text >.000 VNĐ</InputGroup.Text>
-                        </InputGroup>
-                    </div> */}
-{/* <div className="col-6">
-                    <Form.Label>Giá khuyến mãi</Form.Label>
-                    <InputGroup className="mb-3">
-                        <Form.Control onChange={handleChange} name="SalePrice" type="number" min={0} placeholder="Nhập khuyến mãi" />
-                        <InputGroup.Text>.000 VNĐ</InputGroup.Text>
-                    </InputGroup>
-                </div> */}
-{/* <div className="col-6">
-                        <Form.Label>Bảo hành</Form.Label>
-                        <InputGroup className="mb-3">
-                            <Form.Control name="Warranty" type="number" min={0} placeholder="Nhập bảo hành" />
-                            <InputGroup.Text>Tháng</InputGroup.Text>
-                        </InputGroup>
-                    </div>
-                    <div className="col-6">
-                        <Form.Label>Loại bảo hành</Form.Label>
-                        <InputGroup className="mb-3">
-                            <Form.Control name="WarrantyType" type="text" placeholder="Nhập loại bảo hành" />
-                            {/* <InputGroup.Text>Tháng</InputGroup.Text> */}
-//                         </InputGroup>
-//                     </div>
-//                     <div className="col-6">
-//                         <Form.Label>Hãng sản xuất</Form.Label>
-//                         <Form.Select name="BrandId" className="form-control" >
-//                             <option value={0} selected>Chọn hãng sản xuất</option>
-//                         </Form.Select>
-
-//                     </div>
-//                     <div className=" col-6 row align-item-center">
-//                         <div className="col-6">
-//                             <Form.Group className="mb-3" >
-//                                 <Form.Check name="BestSeller" type="checkbox" label="Nổi bật" />
-//                             </Form.Group>
-//                         </div>
-//                         <div className="col-6">
-//                             <Form.Group className="mb-3" >
-//                                 <Form.Check name="Active" type="checkbox" label="Trạng thái" />
-//                             </Form.Group>
-//                         </div>
-//                     </div>
-//                 </Form.Group>
-//                 <hr></hr>
-//                 <Button className="col-1 btn btn-success " type="button">
-//                     <i className="fa fa-plus text-white"> Tạo mới</i>
-//                 </Button>
-//             </Form>
-//         </Tab>
-//         <Tab eventKey={2} title="Thuộc tính sản phẩm"  >
-//             <Form className="card p-3">
-//                 <h4>Chọn danh sách thuộc tính cho sản phẩm</h4>
-
-
-
-//             </Form>
-//         </Tab>
-//     </Tabs>
-// </div>
-// </div> .content */}
